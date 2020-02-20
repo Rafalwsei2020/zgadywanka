@@ -15,36 +15,41 @@ namespace ConsoleApp
             Console.WriteLine(wylosowana);
             Console.WriteLine("Wylosowałem liczbę od 1 do 100. \n Odgadnij ją!");
 
-            // 2. Człowiek proponuje
+            bool odgadniete = false;
+            //Dopóki nie odgadnięte
+            while (! odgadniete )  
+            { 
+                // 2. Człowiek proponuje
 
-            Console.Write("Podaj swoją propozycję:");
-           int propozycja = int.Parse( Console.ReadLine() );
+                Console.Write("Podaj swoją propozycję:");
+                int propozycja = int.Parse(Console.ReadLine());
 
 
-           // 3. Komputer oceni
+                // 3. Komputer ocenia
 
-            if(propozycja < wylosowana)
-            {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine("Za mało");
-                Console.ResetColor();
+                if (propozycja < wylosowana)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Za mało");
+                    Console.ResetColor();
+
+                }
+                else if (propozycja > wylosowana)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Za dużo");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green; // od tego momentu na zielono
+                    Console.WriteLine("Trafiono");
+                    Console.ResetColor();
+                    odgadniete = true;
+
+                }
 
             }
-            else if( propozycja > wylosowana)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Za dużo");
-                Console.ResetColor();
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Green; // od tego momentu na zielono
-                Console.WriteLine("Trafiono");
-                Console.ResetColor(); 
-
-            }
-
-
 
         }
     }
